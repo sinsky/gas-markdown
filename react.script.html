@@ -329,10 +329,12 @@
         }),
       []
     );
+    const activeFile = useRef(null);
     useEffect(() => {
       if (files.length > 0 && activeFileState !== null && activeFileState > -1) {
         const v = files[activeFileState];
         if (v.text !== undefined) setMarkdownData(v.text === "" ? "" : markdown.parse(v.text));
+        activeFile.current = {...v};
       }
     }, [files, activeFileState]);
     const [markdownData, setMarkdownData] = useState("");
@@ -344,8 +346,15 @@
       setFiles([...files]);
     };
     const saveEvent = () => {
-      const file = files[activeFileState];
-      googleRuns("setMarkdownText", { uid: file.uid, value: file.text }).then((res) => setSaveAlert(res.status));
+      const file = activeFile.current;
+      console.log("save event");
+      console.log(file);
+      googleRuns("setMarkdownText", { uid: file.uid, value: file.text })
+        .then((res) => setSaveAlert(`${file.name} is saved`))
+        .catch((err)=>{
+          console.error(err);
+          setSaveAlert(`error... please watch log`);
+        })
     };
     const mountEvent = (editor, monaco) => {
       editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S, saveEvent);
@@ -364,7 +373,7 @@
             );
           })}
         </div>
-        <div className="h-full flex max-h-[90vh]">
+        <div className="h-full flex max-h-[93vh]">
           {activeFileState !== null && files.length > 0 && (
             <>
               <div className="w-1/2">
@@ -376,8 +385,8 @@
             </>
           )}
         </div>
-        <div class="flex">
-          <div class="w-1/2 text-right">{saveAlert}</div>
+        <div className="flex">
+          <div className="w-1/2 text-right text-green-600">{saveAlert}</div>
         </div>
       </section>
     );
