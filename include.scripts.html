@@ -1,0 +1,36 @@
+<!-- tailwindcss -->
+<script src="https://cdn.tailwindcss.com"></script>
+<style type="text/tailwindcss">
+  @layer utilities {
+    .markdown-body ul {
+      @apply list-disc marker:text-sky-400;
+    }
+    .markdown-body ol {
+      @apply list-decimal;
+    }
+    .markdown-body input[type="checkbox"]{
+      @apply accent-pink-500;
+    }
+  }
+</style>
+<!-- markdown style -->
+<!-- .markdown-body * -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css" integrity="sha512-KUoB3bZ1XRBYj1QcH4BHCQjurAZnCO3WdrswyLDtp7BMwCw7dPZngSLqILf68SGgvnWHTD5pPaYrXi6wiRJ65g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- markdown parser -->
+<script src="https://cdn.jsdelivr.net/gh/rsms/markdown-wasm@v1.1.2/dist/markdown.js"></script>
+<!-- highlight css,js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/github.min.css" integrity="sha512-0aPQyyeZrWj9sCA46UlmWgKOP0mUipLQ6OZXu8l4IcAmD2u31EPEy9VcIMvl7SoAaKe8bLXZhYoMaE/in+gcgA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js" integrity="sha512-BNc7saQYlxCL10lykUYhFBcnzdKMnjx5fp5s5wPucDyZ7rKNwCoqJh1GwEAIhuePEK4WM9askJBRsu7ma0Rzvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- react,react-dom,babel -->
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<!-- monaco-react,と他に必要なライブラリ -->
+<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js" crossorigin></script>
+<script src="https://unpkg.com/state-local@1.0.7/lib/umd/state-local.min.js" crossorigin></script>
+<script src="https://unpkg.com/@monaco-editor/loader@0.1.2/lib/umd/monaco-loader.min.js" crossorigin></script>
+<script src="https://unpkg.com/@monaco-editor/react@4.0.0/lib/umd/monaco-react.min.js" crossorigin></script>
+
+<!-- uuid -->
+<script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js" crossorigin></script>
